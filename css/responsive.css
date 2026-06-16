@@ -1,0 +1,65 @@
+/* ============================================
+   Tiba-Tiba Sah — Responsive (Mobile / Tablet)
+   ============================================ */
+
+@media (max-width: 900px) {
+  nav { padding: 14px 20px; }
+  .nav-brand img { height: 30px; }
+
+  /* ── Menu Mobile (Hamburger) ── */
+  .nav-toggle { display: block; }
+  .nav-cta { display: none; }            /* tombol atas disembunyikan, dipindah ke dalam menu */
+
+  .nav-links {
+    display: flex; flex-direction: column; gap: 0;
+    list-style: none;
+    position: absolute; top: 100%; left: -20px; right: -20px;
+    background: #fff;
+    border-top: 1px solid rgba(63,66,84,0.08);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    padding: 0 24px;
+    max-height: 0; overflow: hidden;
+    transition: max-height .35s ease, padding .35s ease;
+  }
+  nav.open .nav-links { max-height: 360px; padding: 8px 24px 20px; }
+
+  .nav-links li { width: 100%; border-bottom: 1px solid rgba(63,66,84,0.06); }
+  .nav-links li:last-child { border-bottom: none; }
+  .nav-links a { display: block; padding: 14px 0; }
+
+  .nav-links-cta { display: block; margin-top: 8px; }
+  .nav-links-cta a {
+    background: var(--dark); color: #fff !important;
+    text-align: center; padding: 14px !important; border-radius: 2px;
+    letter-spacing: 1.5px;
+  }
+  .nav-links-cta a:hover { background: var(--gold); }
+  #hero { padding: 100px 24px 60px; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-right { padding-left: 0; margin-top: 16px; }
+  .hero-title { font-size: 52px; text-align: left; }
+  .hero-desc { text-align: left; margin-left: 0; }
+  .white-card-section { grid-template-columns: 1fr; padding: 60px 24px; }
+  .feat-img-col { min-height: 360px; }
+  #fitur { padding: 80px 24px; }
+  .fitur-grid { grid-template-columns: 1fr; }
+  #tema { padding: 60px 24px; }
+  .card-grid-3 { grid-template-columns: 1fr; }
+  #testimonial { padding: 80px 24px; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .testi-card { padding: 24px; }
+  #pricing { padding: 60px 24px; }
+  .pricing-hero { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .price-card-basic { margin-top: 0; }
+  #faq { padding: 80px 24px; }
+  .faq-grid { grid-template-columns: 1fr; }
+  #builder { padding: 60px 24px; }
+  .builder-inner { grid-template-columns: 1fr; gap: 28px; }
+  .builder-desc { max-width: none; }
+  .builder-card { padding: 24px; }
+  .builder-person { gap: 16px; }
+  .builder-avatar { width: 72px; height: 72px; }
+  #footer { padding: 30px 24px 60px; }
+  .footer-cta-text { font-size: 13px; }
+}
