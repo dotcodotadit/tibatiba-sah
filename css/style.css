@@ -7,14 +7,37 @@
 :root {
   --dark: #24262F;
   --light: #FFFFFF;
-  --gray-bg: #F3F3F3;
-  --gray-card: #F5F5F5;
+  --bg: #FFFFFF;            /* latar halaman */
+  --surface: #FFFFFF;       /* kartu/permukaan terangkat */
+  --gray-bg: #F3F3F3;       /* section abu (fitur, testimonial) */
+  --gray-card: #F5F5F5;     /* tema-wrap, label, kartu basic */
+  --icon-bg: #F1F1F1;
+  --nav-bg: rgba(255,255,255,0.92);
   --text-main: rgba(36,38,47,0.82);
   --text-muted: rgba(63,66,84,0.74);
   --gold: #A88757;
   --btn-bg: #E4E4E4;
   --btn-text: #3F4254;
   --premium-btn: #C79AA7;
+  --border-soft: rgba(63,66,84,0.13);
+  --card-shadow: rgba(0,0,0,0.07);
+}
+
+/* ── DARK MODE ──────────────────────────── */
+[data-theme="dark"] {
+  --light: #2c2f3a;         /* dipakai utk hover bg → jadi gelap */
+  --bg: #15161b;
+  --surface: #1f212a;
+  --gray-bg: #1a1b21;
+  --gray-card: #23252e;
+  --icon-bg: #2a2c36;
+  --nav-bg: rgba(21,22,27,0.92);
+  --text-main: rgba(255,255,255,0.87);
+  --text-muted: rgba(255,255,255,0.6);
+  --btn-bg: #2c2f3a;
+  --btn-text: #e7e7ea;
+  --border-soft: rgba(255,255,255,0.13);
+  --card-shadow: rgba(0,0,0,0.45);
 }
 
 html { scroll-behavior: smooth; }
@@ -22,21 +45,45 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Inter', Helvetica, sans-serif;
   color: var(--text-main);
-  background: var(--light);
+  background: var(--bg);
   overflow-x: hidden;
 }
+
+/* transisi halus saat ganti tema */
+body, nav, section, footer,
+.fitur-card, .tema-card, .feat-item, .feat-img-card, .testi-card,
+.tema-section-wrap, .tema-card-label, .price-card, .fitur-icon, .btn, .tab-btn {
+  transition: background-color .4s ease, color .4s ease, border-color .4s ease;
+}
+
+/* ── THEME TOGGLE ───────────────────────── */
+.theme-toggle {
+  background: none; border: 1px solid var(--border-soft);
+  width: 38px; height: 38px; border-radius: 50%;
+  cursor: pointer; font-size: 16px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-main);
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.theme-toggle:hover { transform: rotate(20deg) scale(1.1); border-color: var(--gold); }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 /* ── NAVBAR ──────────────────────────────── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(255,255,255,0.92);
+  background: var(--nav-bg);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(63,66,84,0.08);
+  border-bottom: 1px solid var(--border-soft);
   padding: 16px 40px;
   display: flex; align-items: center; justify-content: space-between;
 }
 .nav-brand { display: flex; align-items: center; }
-.nav-brand img { height: 38px; width: auto; display: block; }
+.nav-brand img { height: 38px; width: auto; display: block; transition: filter .4s ease; }
+[data-theme="dark"] .nav-brand img { filter: invert(1) brightness(1.6); }
+.nav-right { display: flex; align-items: center; gap: 16px; }
 .nav-links { display: flex; gap: 28px; list-style: none; }
 .nav-links a {
   font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
@@ -64,7 +111,7 @@ nav {
 .nav-toggle span {
   display: block; position: absolute; left: 0;
   width: 100%; height: 2px; border-radius: 2px;
-  background: var(--dark);
+  background: var(--text-main);
   transition: transform .3s ease, opacity .2s ease, top .3s ease;
 }
 .nav-toggle span:nth-child(1) { top: 0; }
@@ -78,7 +125,7 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 #hero {
   min-height: 100vh;
   padding: 140px 60px 100px;
-  background: var(--light);
+  background: var(--bg);
   display: flex; align-items: center;
 }
 .hero-inner {
@@ -120,7 +167,7 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 .hero-desc b { font-family: 'Playfair Display', serif; color: var(--gold); }
 
 /* ── KEUNGGULAN CARDS ───────────────────── */
-.keunggulan { background: #fff; padding: 0 60px 80px; }
+.keunggulan { background: var(--bg); padding: 0 60px 80px; }
 .keunggulan-inner { max-width: 1200px; margin: 0 auto; }
 .white-card-section {
   display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
@@ -133,7 +180,7 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 }
 .feat-img-card {
   position: absolute; bottom: 35px; left: 35px; right: 35px;
-  background: #fff; padding: 35px; border-radius: 2px;
+  background: var(--surface); padding: 35px; border-radius: 2px;
 }
 .feat-img-card h3 {
   font-family: 'Playfair Display', serif;
@@ -146,7 +193,7 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 }
 .feat-item {
-  background: #fff; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  background: var(--surface); padding: 28px; box-shadow: 0 4px 20px var(--card-shadow);
 }
 .feat-item h3 {
   font-family: 'Playfair Display', serif;
@@ -172,7 +219,7 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
   color: var(--text-main); line-height: 1.2;
   margin-bottom: 32px;
 }
-.section-title strong { color: var(--btn-text); }
+.section-title strong { color: var(--gold); }
 
 /* ── FITUR GRID (gray bg) ───────────────── */
 #fitur {
@@ -183,13 +230,13 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 #fitur::before {
   content: '';
   display: block; height: 50px;
-  background: linear-gradient(to bottom right, #fff 50%, transparent 50%);
+  background: linear-gradient(to bottom right, var(--bg) 50%, transparent 50%);
   position: absolute; top: 0; left: 0; right: 0;
 }
 #fitur::after {
   content: '';
   display: block; height: 35px;
-  background: linear-gradient(to bottom left, #fff 50%, transparent 50%);
+  background: linear-gradient(to bottom left, var(--bg) 50%, transparent 50%);
   position: absolute; bottom: 0; left: 0; right: 0;
 }
 .fitur-inner { max-width: 1200px; margin: 0 auto; padding-top: 30px; }
@@ -199,9 +246,9 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
   gap: 16px 20px;
 }
 .fitur-card {
-  background: rgba(255,255,255,0.84);
+  background: var(--surface);
   padding: 35px 25px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 20px var(--card-shadow);
 }
 .fitur-card h3 {
   font-family: 'Playfair Display', serif;
@@ -211,7 +258,7 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 .fitur-card p { font-size: 13px; color: var(--text-muted); line-height: 20px; }
 .fitur-icon {
   width: 50px; height: 50px; border-radius: 50%;
-  background: #F1F1F1; border: 2px solid rgba(63,66,84,.15);
+  background: var(--icon-bg); border: 2px solid var(--border-soft);
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 16px; font-size: 22px;
 }
@@ -224,10 +271,10 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
   text-transform: uppercase; text-decoration: none;
   padding: 12px 32px;
   background: var(--btn-bg); color: var(--btn-text);
-  border: 1px solid rgba(63,66,84,0.13);
-  transition: background .2s, color .2s;
+  border: 1px solid var(--border-soft);
+  transition: background .2s, color .2s, transform .2s;
 }
-.btn:hover { background: var(--light); color: var(--btn-text); }
+.btn:hover { background: var(--gold); color: #fff; border-color: var(--gold); transform: translateY(-2px); }
 .btn-center { text-align: center; margin-top: 16px; }
 .btn-dark {
   background: var(--dark); color: #fff; border-color: var(--dark);
@@ -235,7 +282,7 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 .btn-dark:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
 
 /* ── TEMA SECTION ───────────────────────── */
-#tema { padding: 100px 60px 50px; background: var(--light); }
+#tema { padding: 100px 60px 50px; background: var(--bg); }
 .tema-inner { max-width: 1200px; margin: 0 auto; }
 .tema-tabs {
   display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 48px;
@@ -245,11 +292,11 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
   text-transform: uppercase; cursor: pointer;
   padding: 10px 24px;
   background: var(--btn-bg); color: var(--btn-text);
-  border: 1px solid rgba(63,66,84,0.13);
+  border: 1px solid var(--border-soft);
   transition: background .2s, color .2s;
 }
 .tab-btn.active, .tab-btn:hover {
-  background: var(--dark); color: #fff;
+  background: var(--gold); color: #fff; border-color: var(--gold);
 }
 
 .tema-section { display: none; }
@@ -271,11 +318,11 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
   max-width: 1200px; margin: 0 auto;
 }
 .tema-card {
-  background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  background: var(--surface); box-shadow: 0 4px 16px var(--card-shadow);
   padding: 5px 5px 20px;
 }
 .tema-card-label {
-  background: #F5F5F5; color: var(--btn-text);
+  background: var(--gray-card); color: var(--text-main);
   font-family: 'Playfair Display', serif;
   font-size: 14px; font-weight: 500;
   padding: 10px 16px; display: block;
@@ -293,13 +340,14 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
   font-size: 11px; font-weight: 600; letter-spacing: 1px;
   text-transform: uppercase; text-decoration: none;
   background: var(--btn-bg); color: var(--btn-text);
-  border: 1px solid rgba(63,66,84,0.13);
+  border: 1px solid var(--border-soft);
   transition: background .2s;
 }
-.tema-card-actions a:hover { background: var(--light); }
+.tema-card-actions a:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
 .tema-card-actions a.tema-price {
   background: var(--dark); color: #fff; border-color: var(--dark);
 }
+[data-theme="dark"] .tema-card-actions a.tema-price { background: var(--gold); border-color: var(--gold); }
 .tema-card-actions a.tema-price:hover {
   background: var(--gold); border-color: var(--gold); color: #fff;
 }
@@ -313,13 +361,13 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 #testimonial::before {
   content: '';
   display: block; height: 50px;
-  background: linear-gradient(to bottom right, #fff 50%, transparent 50%);
+  background: linear-gradient(to bottom right, var(--bg) 50%, transparent 50%);
   position: absolute; top: 0; left: 0; right: 0;
 }
 #testimonial::after {
   content: '';
   display: block; height: 35px;
-  background: linear-gradient(to bottom left, #fff 50%, transparent 50%);
+  background: linear-gradient(to bottom left, var(--bg) 50%, transparent 50%);
   position: absolute; bottom: 0; left: 0; right: 0;
 }
 .testimonial-inner { max-width: 1200px; margin: 0 auto; padding-top: 30px; }
@@ -328,7 +376,7 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
   margin-bottom: 20px;
 }
 .testi-card {
-  background: rgba(255,255,255,0.58);
+  background: var(--surface);
   padding: 50px;
 }
 .testi-person {
@@ -338,17 +386,17 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
   width: 56px; height: 56px; border-radius: 12px;
   object-fit: cover; flex-shrink: 0;
 }
-.testi-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; color: var(--btn-text); }
-.testi-job { font-size: 13px; color: var(--btn-text); font-weight: 500; }
+.testi-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; color: var(--text-main); }
+.testi-job { font-size: 13px; color: var(--text-muted); font-weight: 500; }
 .testi-quote {
   font-family: 'Playfair Display', serif;
   font-size: 18px; font-weight: 500;
-  color: var(--btn-text); margin-bottom: 12px; line-height: 1.4;
+  color: var(--text-main); margin-bottom: 12px; line-height: 1.4;
 }
-.testi-body { font-size: 13px; color: #211E1E; line-height: 25px; font-weight: 300; }
+.testi-body { font-size: 13px; color: var(--text-muted); line-height: 25px; font-weight: 300; }
 
 /* ── PRICING ────────────────────────────── */
-#pricing { padding: 100px 60px 60px; background: var(--light); }
+#pricing { padding: 100px 60px 60px; background: var(--bg); }
 .pricing-inner { max-width: 900px; margin: 0 auto; }
 .pricing-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 60px; }
 .pricing-hero-text h2 {
@@ -406,7 +454,7 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 #faq::before {
   content: '';
   display: block; height: 50px;
-  background: linear-gradient(to bottom left, #fff 50%, transparent 50%);
+  background: linear-gradient(to bottom left, var(--bg) 50%, transparent 50%);
   position: absolute; top: 0; left: 0; right: 0;
 }
 .faq-inner { max-width: 1200px; margin: 0 auto; padding-top: 30px; }
@@ -527,4 +575,93 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── ANIMASI INTERAKTIF ─────────────────── */
+
+/* Hero masuk perlahan saat load */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-left, .hero-right { animation: fadeUp .9s ease both; }
+.hero-right { animation-delay: .15s; }
+
+/* Hover angkat untuk kartu */
+.fitur-card, .feat-item, .tema-card {
+  transition: transform .3s ease, box-shadow .3s ease,
+              background-color .4s ease, color .4s ease;
+}
+.fitur-card:hover, .feat-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px var(--card-shadow);
+}
+.tema-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px var(--card-shadow);
+}
+.tema-card img { transition: transform .4s ease; }
+.tema-card:hover img { transform: scale(1.04); }
+
+/* Ikon fitur memantul saat kartunya di-hover */
+.fitur-card:hover .fitur-icon { animation: iconPop .5s ease; }
+@keyframes iconPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.18) rotate(-6deg); }
+  100% { transform: scale(1); }
+}
+
+/* Avatar builder mengambang lembut */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.builder-avatar { animation: float 4s ease-in-out infinite; }
+
+/* Reveal bertahap untuk anak grid (stagger) */
+.reveal.is-visible .fitur-card,
+.reveal.is-visible .tema-card {
+  animation: fadeUp .6s ease both;
+}
+.reveal.is-visible .fitur-card:nth-child(2) { animation-delay: .07s; }
+.reveal.is-visible .fitur-card:nth-child(3) { animation-delay: .14s; }
+.reveal.is-visible .fitur-card:nth-child(4) { animation-delay: .21s; }
+.reveal.is-visible .fitur-card:nth-child(5) { animation-delay: .28s; }
+.reveal.is-visible .fitur-card:nth-child(6) { animation-delay: .35s; }
+
+/* Tombol WhatsApp mengambang */
+.wa-float {
+  position: fixed; right: 20px; bottom: 20px; z-index: 90;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #25D366; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.45);
+  transition: transform .25s ease, box-shadow .25s ease;
+  animation: waPulse 2.4s ease-in-out infinite;
+}
+.wa-float:hover { transform: scale(1.12); box-shadow: 0 8px 26px rgba(37,211,102,0.6); }
+.wa-float svg { width: 30px; height: 30px; fill: #fff; }
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 6px 20px rgba(37,211,102,0.45); }
+  50% { box-shadow: 0 6px 28px rgba(37,211,102,0.85); }
+}
+
+/* Tombol "Kembali ke atas" */
+.to-top {
+  position: fixed; right: 20px; bottom: 86px; z-index: 90;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--dark); color: #fff; border: none; cursor: pointer;
+  font-size: 20px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: opacity .3s ease, transform .3s ease, background .2s ease;
+}
+.to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.to-top:hover { background: var(--gold); }
+[data-theme="dark"] .to-top { background: var(--gold); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-left, .hero-right, .builder-avatar,
+  .reveal.is-visible .fitur-card, .reveal.is-visible .tema-card,
+  .wa-float { animation: none; }
 }
