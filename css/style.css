@@ -188,6 +188,7 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
   color: var(--text-main); margin-bottom: 10px;
 }
 .feat-img-card p { font-size: 14px; color: var(--text-muted); line-height: 22px; }
+.feat-img-mobile { display: none; }   /* hanya tampil di mobile (lihat responsive.css) */
 .feat-right-col { display: flex; flex-direction: column; gap: 16px; }
 .feat-mini {
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
