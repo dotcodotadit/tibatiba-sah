@@ -39,26 +39,27 @@
     display: flex; flex-direction: column; gap: 0;
     list-style: none;
     position: absolute; top: 100%; left: -20px; right: -20px;
-    background: #fff;
-    border-top: 1px solid rgba(63,66,84,0.08);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    background: var(--nav-bg);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--border-soft);
+    box-shadow: 0 10px 24px var(--card-shadow);
     padding: 0 24px;
     max-height: 0; overflow: hidden;
     transition: max-height .35s ease, padding .35s ease;
   }
   nav.open .nav-links { max-height: 360px; padding: 8px 24px 20px; }
 
-  .nav-links li { width: 100%; border-bottom: 1px solid rgba(63,66,84,0.06); }
+  .nav-links li { width: 100%; border-bottom: 1px solid var(--border-soft); }
   .nav-links li:last-child { border-bottom: none; }
   .nav-links a { display: block; padding: 14px 0; }
 
   .nav-links-cta { display: block; margin-top: 8px; }
   .nav-links-cta a {
-    background: var(--dark); color: #fff !important;
+    background: var(--gold); color: #fff !important;
     text-align: center; padding: 14px !important; border-radius: 2px;
     letter-spacing: 1.5px;
   }
-  .nav-links-cta a:hover { background: var(--gold); }
+  .nav-links-cta a:hover { background: var(--dark); }
 
   /* ── Hero ── */
   #hero { padding: 100px 24px 60px; }
