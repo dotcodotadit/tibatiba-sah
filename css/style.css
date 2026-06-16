@@ -196,14 +196,12 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 .fitur-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0 20px;
-  margin-bottom: 0;
+  gap: 16px 20px;
 }
 .fitur-card {
   background: rgba(255,255,255,0.84);
   padding: 35px 25px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  margin: 5px 0;
 }
 .fitur-card h3 {
   font-family: 'Playfair Display', serif;

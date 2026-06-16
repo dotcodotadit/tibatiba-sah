@@ -83,7 +83,10 @@
 
   /* ── Section lain → 1 kolom ── */
   #fitur { padding: 80px 24px; }
-  .fitur-grid { grid-template-columns: 1fr; }
+  .fitur-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .fitur-card { padding: 22px 16px; }
+  .fitur-card h3 { font-size: 15px; }
+  .fitur-icon { width: 42px; height: 42px; font-size: 18px; margin-bottom: 12px; }
   #tema { padding: 60px 24px; }
   .card-grid-3 { grid-template-columns: 1fr; }
   #testimonial { padding: 80px 24px; }
