@@ -1,7 +1,31 @@
 /* ============================================
-   Tiba-Tiba Sah — Responsive (Mobile / Tablet)
+   Tiba-Tiba Sah — Responsive
+   3 mode: Desktop (default) · Tablet · Mobile
    ============================================ */
 
+/* ===========================================================
+   TABLET  (901px – 1024px)
+   Layout multi-kolom dipertahankan, hanya padding dirapatkan.
+   =========================================================== */
+@media (min-width: 901px) and (max-width: 1024px) {
+  #hero { padding: 120px 40px 80px; }
+  .keunggulan { padding: 0 40px 70px; }
+  .feat-img-col { min-height: 500px; }
+  #fitur { padding: 70px 40px; }
+  #tema { padding: 80px 40px 40px; }
+  #premium { padding: 70px 40px; }
+  #testimonial { padding: 80px 40px; }
+  #pricing { padding: 80px 40px 50px; }
+  #faq { padding: 80px 40px 70px; }
+  #builder { padding: 80px 40px; }
+  .testi-card { padding: 36px; }
+  .price-card { padding: 50px 24px; }
+}
+
+/* ===========================================================
+   MOBILE & TABLET KECIL  (≤ 900px)
+   Semua jadi 1 kolom + menu hamburger.
+   =========================================================== */
 @media (max-width: 900px) {
   nav { padding: 14px 20px; }
   .nav-brand img { height: 30px; }
@@ -34,13 +58,30 @@
     letter-spacing: 1.5px;
   }
   .nav-links-cta a:hover { background: var(--gold); }
+
+  /* ── Hero ── */
   #hero { padding: 100px 24px 60px; }
   .hero-inner { grid-template-columns: 1fr; }
   .hero-right { padding-left: 0; margin-top: 16px; }
   .hero-title { font-size: 52px; text-align: left; }
   .hero-desc { text-align: left; margin-left: 0; }
-  .white-card-section { grid-template-columns: 1fr; padding: 60px 24px; }
-  .feat-img-col { min-height: 360px; }
+
+  /* ── Keunggulan: kartu TIDAK menutupi gambar lagi ──
+     Gambar tampil di atas (area padding-top), kartu mengalir di bawahnya. */
+  .keunggulan { padding: 0 24px 60px; }
+  .white-card-section { grid-template-columns: 1fr; gap: 16px; }
+  .feat-mini { grid-template-columns: 1fr; }     /* Harga Terjangkau & Terima Beres jadi 1 kolom */
+  .feat-img-col {
+    min-height: 0;
+    padding-top: 260px;                          /* tinggi area gambar */
+    background-position: top center;
+  }
+  .feat-img-card {
+    position: static;                            /* keluar dari overlay, mengalir di bawah gambar */
+    padding: 24px;
+  }
+
+  /* ── Section lain → 1 kolom ── */
   #fitur { padding: 80px 24px; }
   .fitur-grid { grid-template-columns: 1fr; }
   #tema { padding: 60px 24px; }
@@ -62,4 +103,26 @@
   .builder-avatar { width: 72px; height: 72px; }
   #footer { padding: 30px 24px 60px; }
   .footer-cta-text { font-size: 13px; }
+}
+
+/* ===========================================================
+   HP KECIL  (≤ 600px)
+   Penyesuaian tambahan agar tidak sesak di layar sempit.
+   =========================================================== */
+@media (max-width: 600px) {
+  #hero { padding: 96px 18px 50px; }
+  .hero-big { font-size: clamp(60px, 18vw, 84px); }
+  .hero-title { font-size: clamp(40px, 13vw, 52px); }
+
+  .keunggulan { padding: 0 18px 50px; }
+  .feat-img-col { padding-top: 200px; }          /* area gambar lebih ringkas di HP kecil */
+
+  #fitur, #tema, #testimonial, #pricing, #builder { padding-left: 18px; padding-right: 18px; }
+  #faq { padding-left: 18px; padding-right: 18px; }
+
+  .section-title { font-size: clamp(20px, 6vw, 28px); }
+  .tema-section-wrap { padding: 30px 14px; }
+  .price-card { padding: 40px 22px; }
+  .builder-title { font-size: clamp(30px, 9vw, 40px); }
+  .builder-actions { grid-template-columns: 1fr; }   /* 2 tombol builder menumpuk */
 }

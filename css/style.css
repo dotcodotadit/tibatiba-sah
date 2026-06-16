@@ -120,16 +120,16 @@ nav.open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 .hero-desc b { font-family: 'Playfair Display', serif; color: var(--gold); }
 
 /* ── KEUNGGULAN CARDS ───────────────────── */
+.keunggulan { background: #fff; padding: 0 60px 80px; }
+.keunggulan-inner { max-width: 1200px; margin: 0 auto; }
 .white-card-section {
-  padding: 100px 60px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-  max-width: 1200px; margin: 0 auto;
 }
 .feat-img-col {
   background-image: url('../assets/images/hero.png');
   background-size: cover; background-position: center;
   border-radius: 4px; min-height: 600px;
-  position: relative;
+  position: relative; overflow: hidden;
 }
 .feat-img-card {
   position: absolute; bottom: 35px; left: 35px; right: 35px;
