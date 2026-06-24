@@ -1,146 +1,84 @@
-/* ============================================
+/* ============================================================
    Tiba-Tiba Sah — Responsive
-   3 mode: Desktop (default) · Tablet · Mobile
-   ============================================ */
+   Desktop (default) · Tablet (≤1024) · Mobile (≤768) · HP kecil (≤480)
+   ============================================================ */
 
-/* ===========================================================
-   TABLET  (901px – 1024px)
-   Layout multi-kolom dipertahankan, hanya padding dirapatkan.
-   =========================================================== */
-@media (min-width: 901px) and (max-width: 1024px) {
-  #hero { padding: 120px 40px 80px; }
-  .keunggulan { padding: 0 40px 70px; }
-  .feat-img-col { min-height: 500px; }
-  #fitur { padding: 70px 40px; }
-  #tema { padding: 80px 40px 40px; }
-  #premium { padding: 70px 40px; }
-  #testimonial { padding: 80px 40px; }
-  #pricing { padding: 80px 40px 50px; }
-  #faq { padding: 80px 40px 70px; }
-  #builder { padding: 80px 40px; }
-  .testi-card { padding: 36px; }
-  .price-card { padding: 50px 24px; }
+/* ── TABLET (≤ 1024px) ─────────────────────────────── */
+@media (max-width: 1024px) {
+  .section-wrap { padding: 0 32px; }
+  section { padding: 88px 0; }
+  .keunggulan-grid { grid-template-columns: repeat(2, 1fr); }
+  .fitur-grid { grid-template-columns: repeat(2, 1fr); }
+  .tema-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ===========================================================
-   MOBILE & TABLET KECIL  (≤ 900px)
-   Semua jadi 1 kolom + menu hamburger.
-   =========================================================== */
-@media (max-width: 900px) {
-  nav { padding: 14px 20px; }
-  .nav-brand img { height: 30px; }
-  .theme-toggle { width: 34px; height: 34px; font-size: 15px; margin-left: auto; margin-right: 4px; }
+/* ── MOBILE (≤ 768px) ──────────────────────────────── */
+@media (max-width: 768px) {
+  .nav { padding: 13px 20px; }
+  .nav.scrolled { padding: 10px 20px; }
+  .nav-brand img { height: 32px; }
 
-  /* ── Menu Mobile (Hamburger) ── */
+  /* Mobile menu */
   .nav-toggle { display: block; }
-  .nav-cta { display: none; }            /* tombol atas disembunyikan, dipindah ke dalam menu */
-
+  .nav-cta { display: none; }
   .nav-links {
-    display: flex; flex-direction: column; gap: 0;
-    list-style: none;
-    position: absolute; top: 100%; left: -20px; right: -20px;
-    background: var(--nav-bg);
-    backdrop-filter: blur(8px);
-    border-top: 1px solid var(--border-soft);
-    box-shadow: 0 10px 24px var(--card-shadow);
-    padding: 0 24px;
-    max-height: 0; overflow: hidden;
-    transition: max-height .35s ease, padding .35s ease;
+    position: absolute; top: 100%; left: 0; right: 0; flex-direction: column;
+    align-items: stretch; gap: 0; padding: 0 20px;
+    background: var(--nav-bg); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-soft);
+    max-height: 0; overflow: hidden; transition: max-height .4s var(--ease), padding .4s;
   }
-  nav.open .nav-links { max-height: 360px; padding: 8px 24px 20px; }
-
-  .nav-links li { width: 100%; border-bottom: 1px solid var(--border-soft); }
-  .nav-links li:last-child { border-bottom: none; }
-  .nav-links a { display: block; padding: 14px 0; }
-
-  .nav-links-cta { display: block; margin-top: 8px; }
-  .nav-links-cta a {
-    background: var(--gold); color: #fff !important;
-    text-align: center; padding: 14px !important; border-radius: 2px;
-    letter-spacing: 1.5px;
+  .nav.open .nav-links { max-height: 380px; padding: 8px 20px 20px; }
+  .nav-links > a { padding: 15px 0; border-bottom: 1px solid var(--border-soft); }
+  .nav-links > a:not(.nav-links-cta)::after { display: none; }
+  .nav-links-cta {
+    display: block; text-align: center; margin-top: 12px;
+    padding: 14px !important; border-radius: 100px; color: #1a140b !important;
+    background: var(--grad-gold); border-bottom: none !important; font-weight: 600;
   }
-  .nav-links-cta a:hover { background: var(--dark); }
 
-  /* ── Hero ── */
-  #hero { padding: 100px 24px 60px; }
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-right { padding-left: 0; margin-top: 16px; }
-  .hero-title { font-size: 52px; text-align: left; }
-  .hero-desc { text-align: left; margin-left: 0; }
+  #hero { padding: 120px 22px 80px; }
+  .hero-title-brand { font-size: clamp(44px, 12.5vw, 92px); letter-spacing: -1.5px; }
+  .hero-cta { margin-bottom: 48px; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero-scroll { display: none; }
+  .showcase-item { width: 96px; }
 
-  /* ── Keunggulan: kartu TIDAK menutupi gambar lagi ──
-     Gambar tampil di atas (area padding-top), kartu mengalir di bawahnya. */
-  .keunggulan { padding: 0 24px 60px; }
-  .white-card-section { grid-template-columns: 1fr; gap: 16px; }
-  .feat-mini { grid-template-columns: 1fr; gap: 16px; }   /* Harga & Terima Beres jadi 1 kolom */
+  .section-wrap { padding: 0 22px; }
+  section { padding: 72px 0; }
+  .section-head { margin-bottom: 40px; }
 
-  /* Gambar tampil normal (rasio penuh), bukan background banner */
-  .feat-img-col {
-    background-image: none;          /* matikan banner background */
-    min-height: 0; padding: 0;
-    border-radius: 0; overflow: visible;
-    display: flex; flex-direction: column; gap: 16px;
-  }
-  .feat-img-mobile {
-    display: block; width: 100%; height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px var(--card-shadow);
-  }
-  /* Kartu "Tepat & Cepat" seragam dgn "Harga Terjangkau" & "Terima Beres" */
-  .feat-img-card {
-    position: static;
-    background: var(--surface);
-    padding: 28px;
-    box-shadow: 0 4px 20px var(--card-shadow);
-    border-radius: 0;
-  }
-  .feat-img-card h3 { font-size: 18px; margin-bottom: 8px; }
-  .feat-img-card p { font-size: 13px; line-height: 20px; }
+  .keunggulan-grid { gap: 14px; }
+  .fitur-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .fitur-card { padding: 24px 18px; }
+  .fitur-card h3 { font-size: 16px; }
+  .fitur-icon { width: 46px; height: 46px; font-size: 20px; margin-bottom: 14px; }
 
-  /* ── Section lain → 1 kolom ── */
-  #fitur { padding: 80px 24px; }
-  .fitur-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .fitur-card { padding: 22px 16px; }
-  .fitur-card h3 { font-size: 15px; }
-  .fitur-icon { width: 42px; height: 42px; font-size: 18px; margin-bottom: 12px; }
-  #tema { padding: 60px 24px; }
-  .card-grid-3 { grid-template-columns: 1fr; }
-  #testimonial { padding: 80px 24px; }
+  .tema-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .tema-name { font-size: 15px; }
+  .tema-actions { flex-direction: column; }
+
   .testi-grid { grid-template-columns: 1fr; }
-  .testi-card { padding: 24px; }
-  #pricing { padding: 60px 24px; }
-  .pricing-hero { grid-template-columns: 1fr; }
-  .pricing-grid { grid-template-columns: 1fr; }
-  .price-card-basic { margin-top: 0; }
-  #faq { padding: 80px 24px; }
+  .testi-card { padding: 28px; }
+  .testi-quote { font-size: 18px; }
+
+  .pricing-grid { grid-template-columns: 1fr; gap: 28px; }
   .faq-grid { grid-template-columns: 1fr; }
-  #builder { padding: 60px 24px; }
   .builder-inner { grid-template-columns: 1fr; gap: 28px; }
-  .builder-desc { max-width: none; }
-  .builder-card { padding: 24px; }
-  .builder-person { gap: 16px; }
-  .builder-avatar { width: 72px; height: 72px; }
-  #footer { padding: 30px 24px 60px; }
-  .footer-cta-text { font-size: 13px; }
+  .builder-actions { flex-direction: column; }
 }
 
-/* ===========================================================
-   HP KECIL  (≤ 600px)
-   Penyesuaian tambahan agar tidak sesak di layar sempit.
-   =========================================================== */
-@media (max-width: 600px) {
-  #hero { padding: 96px 18px 50px; }
-  .hero-big { font-size: clamp(60px, 18vw, 84px); }
-  .hero-title { font-size: clamp(40px, 13vw, 52px); }
-
-  .keunggulan { padding: 0 18px 50px; }
-
-  #fitur, #tema, #testimonial, #pricing, #builder { padding-left: 18px; padding-right: 18px; }
-  #faq { padding-left: 18px; padding-right: 18px; }
-
-  .section-title { font-size: clamp(20px, 6vw, 28px); }
-  .tema-section-wrap { padding: 30px 14px; }
-  .price-card { padding: 40px 22px; }
-  .builder-title { font-size: clamp(30px, 9vw, 40px); }
-  .builder-actions { grid-template-columns: 1fr; }   /* 2 tombol builder menumpuk */
+/* ── HP KECIL (≤ 480px) ────────────────────────────── */
+@media (max-width: 480px) {
+  .section-wrap { padding: 0 16px; }
+  #hero { padding: 110px 16px 70px; }
+  .hero-cta { flex-direction: column; }
+  .hero-cta .btn { width: 100%; }
+  .keunggulan-grid { grid-template-columns: 1fr; }
+  .fitur-grid { grid-template-columns: 1fr; }
+  .tema-grid { grid-template-columns: 1fr; }
+  .tema-actions { flex-direction: row; }
+  .wa-float { width: 50px; height: 50px; right: 16px; bottom: 16px; }
+  .wa-float svg { width: 26px; height: 26px; }
+  .to-top { right: 18px; bottom: 76px; width: 40px; height: 40px; }
 }

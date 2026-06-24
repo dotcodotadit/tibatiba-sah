@@ -1,0 +1,63 @@
+/* ============================================================
+   Tiba-Tiba Sah — Design Tokens (Light only)
+   Gaya: editorial butik undangan — kertas ivory hangat,
+   tinta cokelat, aksen kuningan (brass) & dusty rose.
+   ============================================================ */
+
+:root {
+  /* ── Aksen brand ────────────────────────────────── */
+  --brass:       #9C7A3C;   /* aksen utama (antik, tidak mengkilap) */
+  --brass-deep:  #7C5F2C;
+  --brass-soft:  #C9A86A;
+  --rose:        #B27D6C;   /* aksen sekunder (dusty clay rose) */
+  --rose-soft:   #E7D2C8;
+
+  /* Alias lama agar komponen tidak perlu ganti nama variabel */
+  --gold:        var(--brass);
+  --gold-bright: var(--brass-soft);
+  --gold-deep:   var(--brass-deep);
+
+  /* Gradient ditahan (hanya dipakai utk detail kecil) */
+  --grad-gold:  linear-gradient(120deg, #B08A45, #8A6A30);
+  --grad-line:  linear-gradient(90deg, transparent, var(--brass-soft), transparent);
+
+  /* ── Permukaan ──────────────────────────────────── */
+  --bg:           #FBF7EF;   /* kertas */
+  --bg-2:         #F3ECDE;   /* section selang-seling */
+  --bg-elev:      #FFFFFF;
+  --surface:      #FFFFFF;   /* kartu solid */
+  --surface-2:    #F7F1E6;
+  --surface-solid:#FFFFFF;
+
+  /* ── Teks ───────────────────────────────────────── */
+  --text:         #2C2820;
+  --text-muted:   #5E564A;
+  --text-faint:   #9A9082;
+
+  /* ── Garis & bayangan (hangat, lembut) ──────────── */
+  --border-soft:  #E7DECB;
+  --glass-border: #E7DECB;
+  --nav-bg:       rgba(251,247,239,0.85);
+  --shadow-card:  0 18px 44px -26px rgba(92,70,32,0.30);
+  --shadow-soft:  0 6px 20px -12px rgba(92,70,32,0.22);
+  --shadow-glow:  0 10px 30px -16px rgba(156,122,60,0.40);
+  --ring:         0 0 0 1px rgba(44,40,32,0.05);
+
+  /* Tekstur kertas */
+  --grain-opacity: 0.05;
+
+  /* ── Tipografi ──────────────────────────────────── */
+  --font-display: 'League Spartan', 'Arial Narrow', system-ui, sans-serif;
+  --font-sans:    'Space Grotesk', 'Inter', system-ui, sans-serif;
+
+  /* ── Layout ─────────────────────────────────────── */
+  --maxw: 1180px;
+  --radius:    14px;
+  --radius-sm: 10px;
+  --radius-lg: 24px;
+
+  /* ── Motion ─────────────────────────────────────── */
+  --ease:      cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur:       .6s;
+}
