@@ -36,16 +36,22 @@
     if (!tabsEl || !gridEl || typeof TT_CATEGORIES === 'undefined') return;
 
     // Tabs
-    tabsEl.innerHTML = TT_CATEGORIES.map((c, i) =>
-      `<button class="tab-btn${i === 0 ? ' active' : ''}" role="tab" data-cat="${c.key}">${c.label}</button>`
+    const tabsHTML = TT_CATEGORIES.map((c, i) =>
+      `<button class="tab-btn${i === 0 ? ' active' : ''}" role="tab" aria-selected="${i === 0}" aria-controls="temaGrid" data-cat="${c.key}">${c.label}</button>`
     ).join('');
+    tabsEl.innerHTML = tabsHTML;
+    gridEl.setAttribute('aria-atomic', 'true');
 
     function cardHTML(t) {
       return `
         <article class="tema-card">
           <div class="tema-card-media">
-            <img src="${IMG_BASE}${t.img}.jpg" alt="${t.name}" loading="lazy" />
+            <img src="${IMG_BASE}${t.img}.jpg" alt="${t.name}" loading="lazy" decoding="async" />
             <div class="tema-overlay"></div>
+            <button class="tema-preview" type="button" data-demo="${t.demo}" data-name="${t.name}" data-price="${t.price}" aria-label="Lihat preview tema ${t.name}">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+              <span>Lihat Preview</span>
+            </button>
             ${t.premium ? '<span class="tema-crown">Premium</span>' : ''}
           </div>
           <div class="tema-info">
@@ -65,18 +71,21 @@
         window.gsap.fromTo(gridEl.children,
           { opacity: 0, y: 24 },
           { opacity: 1, y: 0, duration: .5, stagger: .04, ease: 'power2.out', overwrite: true });
+      } else {
+        gridEl.style.opacity = '1';
       }
     }
 
     tabsEl.addEventListener('click', (e) => {
       const btn = e.target.closest('.tab-btn');
       if (!btn) return;
-      $$('.tab-btn', tabsEl).forEach(b => b.classList.remove('active'));
+      $$('.tab-btn', tabsEl).forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
       btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
       show(btn.dataset.cat);
     });
 
-    show(TT_CATEGORIES[0].key);
+    if (TT_CATEGORIES.length > 0) show(TT_CATEGORIES[0].key);
   }
 
   /* ── Showcase marquee (cuplikan tema asli) ───────── */
@@ -86,8 +95,14 @@
     // pilih 14 tema beragam, lalu digandakan agar loop mulus
     const picks = TT_THEMES.filter((_, i) => i % 5 === 0).slice(0, 14);
     const itemHTML = (t) =>
-      `<div class="showcase-item"><img src="${IMG_BASE}${t.img}.jpg" alt="" loading="lazy" /></div>`;
+      `<div class="showcase-item"><img src="${IMG_BASE}${t.img}.jpg" alt="" loading="lazy" decoding="async" /></div>`;
     track.innerHTML = (picks.map(itemHTML).join('')) + (picks.map(itemHTML).join(''));
+    // Lazy load only images near viewport
+    const imgs = track.querySelectorAll('img');
+    imgs.forEach((img, i) => {
+      if (i < 7) img.setAttribute('fetchpriority', 'high');
+      else img.setAttribute('loading', 'lazy');
+    });
   }
 
   /* ============================================================
@@ -96,7 +111,10 @@
   function initPreloader() {
     const pre = $('#preloader');
     if (!pre) return;
+    let finished = false;
     const finish = () => {
+      if (finished) return;
+      finished = true;
       pre.classList.add('done');
       document.body.classList.remove('no-scroll');
       startHero();
@@ -117,7 +135,7 @@
      ============================================================ */
   let lenis = null;
   function initSmoothScroll() {
-    if (!hasLenis || reduceMotion || isTouch) return;
+    if (!hasLenis || reduceMotion || (isTouch && window.innerWidth < 1024)) return;
     lenis = new window.Lenis({ duration: 1.1, smoothWheel: true });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
@@ -136,7 +154,7 @@
         if (!target) return;
         e.preventDefault();
         closeMenu();
-        if (lenis) lenis.scrollTo(target, { offset: -70 });
+        if (lenis) lenis.scrollTo(target, { offset: -getNavOffset() });
         else target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
       });
     });
@@ -164,17 +182,28 @@
      ============================================================ */
   const nav = $('#nav');
   const navToggle = $('#navToggle');
+  const getNavOffset = () => nav ? nav.offsetHeight + 20 : 70;
   function closeMenu() {
     if (!nav) return;
     nav.classList.remove('open');
     if (navToggle) { navToggle.setAttribute('aria-expanded', 'false'); navToggle.setAttribute('aria-label', 'Buka menu'); }
   }
-  function initNav() {
+    function initNav() {
     if (navToggle && nav) {
       navToggle.addEventListener('click', () => {
         const open = nav.classList.toggle('open');
         navToggle.setAttribute('aria-expanded', String(open));
         navToggle.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+      });
+      document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && nav.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('open')) {
+          closeMenu();
+        }
       });
     }
     const onScroll = () => { if (nav) nav.classList.toggle('scrolled', window.scrollY > 30); };
@@ -235,7 +264,7 @@
         const tick = () => {
           cur += inc;
           if (cur >= target) { el.textContent = target + suffix; }
-          else { el.textContent = Math.floor(cur) + suffix; requestAnimationFrame(tick); }
+          else { el.textContent = Math.round(cur) + suffix; requestAnimationFrame(tick); }
         };
         tick(); io.unobserve(el);
       });
@@ -259,6 +288,70 @@
     });
   }
 
+  /* ============================================================
+      11. LIVE PREVIEW MODAL (iframe) — interaktif & aksesibel
+      ============================================================ */
+  function initPreviewModal() {
+    const modal  = $('#previewModal');
+    const frame  = $('#previewFrame');
+    const loading = $('#previewLoading');
+    const title  = $('#previewTitle');
+    const order  = $('#previewOrder');
+    const openNew = $('#previewOpen');
+    if (!modal || !frame) return;
+
+    let lastFocus = null;
+
+    function open(demo, name, price) {
+      lastFocus = document.activeElement;
+      title.textContent = name || 'Preview Tema';
+      loading.hidden = false;
+      frame.classList.remove('ready');
+      frame.src = DEMO_BASE + demo;
+      order.href = waThemeLink(name || 'Tema', Number(price) || 0);
+      openNew.href = DEMO_BASE + demo;
+      modal.hidden = false;
+      document.body.classList.add('no-scroll');
+      modal.querySelector('.preview-close').focus();
+      document.addEventListener('keydown', onKey);
+    }
+
+    function close() {
+      modal.hidden = true;
+      document.body.classList.remove('no-scroll');
+      frame.src = 'about:blank';
+      document.removeEventListener('keydown', onKey);
+      if (lastFocus) lastFocus.focus();
+    }
+
+    function onKey(e) {
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key === 'Tab') {
+        const f = $$('button, a, [tabindex]:not([tabindex="-1"])', modal)
+          .filter(el => !el.hidden && el.offsetParent !== null);
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    }
+
+    frame.addEventListener('load', () => { loading.hidden = true; frame.classList.add('ready'); });
+
+    // delegasi: kartu tema di-render ulang tiap ganti tab
+    const grid = $('#temaGrid');
+    if (grid) {
+      grid.addEventListener('click', (e) => {
+        const btn = e.target.closest('.tema-preview');
+        if (!btn) return;
+        e.preventDefault();
+        open(btn.dataset.demo, btn.dataset.name, btn.dataset.price);
+      });
+    }
+
+    modal.addEventListener('click', (e) => { if (e.target.closest('[data-close]')) close(); });
+  }
+
   /* ── Boot ────────────────────────────────────────── */
   function init() {
     renderGallery();
@@ -272,6 +365,7 @@
     initScrollUI();
     initCounters();
     initHeroParallax();
+    initPreviewModal();
     if (reduceMotion) startHero();
   }
 

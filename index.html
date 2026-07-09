@@ -8,29 +8,57 @@
 
   <link rel="icon" type="image/png" href="assets/images/logo.png" />
 
-  <!-- Open Graph / share preview -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Tiba-Tiba Sah — Website Undangan Digital" />
   <meta property="og:description" content="Undangan digital elegan & modern. 77+ tema, jadi dalam 1×24 jam, harga mulai Rp80.000." />
   <meta property="og:image" content="assets/images/keunggulan-premium.jpg" />
+  <meta name="theme-color" content="#000f2e" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://unpkg.com" />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/leaguespartan/v15/1vA7BL9J9XGDKjW_8LORVRRfbBK7Kgp5.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/manrope/v15/i7dJIFGifybyNUj9jMM.woff2" />
 
-  <!-- Styles -->
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Berapa lama proses pengerjaan undangan?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pengerjaan undangan digital selesai dalam 1×24 jam setelah semua data diterima dan order dikonfirmasi." }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah bisa request revisi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Tentu! Kami menyediakan layanan revisi agar hasil undangan sesuai dengan keinginan Anda." }
+    },
+    {
+      "@type": "Question",
+      "name": "Apa saja metode pembayaran yang tersedia?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Kami menerima berbagai metode pembayaran termasuk transfer bank, e-wallet, dan QRIS." }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah undangan bisa dibuka di semua perangkat?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ya! Semua undangan dioptimalkan untuk tampil sempurna di smartphone, tablet, maupun desktop." }
+    }
+  ]
+}
+</script>
 
-<!-- Grain texture overlay -->
-<div class="grain" aria-hidden="true"></div>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-<!-- PRELOADER -->
 <div class="preloader" id="preloader" aria-hidden="true">
   <div class="preloader-mark">
     <img src="assets/images/logo.png" alt="" />
@@ -38,10 +66,8 @@
   </div>
 </div>
 
-<!-- SCROLL PROGRESS -->
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-<!-- NAV -->
 <header class="nav" id="nav">
   <a class="nav-brand" href="#hero" aria-label="Tiba-Tiba Sah - Beranda">
     <img src="assets/images/logo.png" alt="Tiba-Tiba Sah — Undangan Digital" />
@@ -61,39 +87,46 @@
   </div>
 </header>
 
-<main>
+<main id="main-content">
 
-<!-- HERO -->
 <section id="hero">
-  <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-inner">
     <span class="hero-eyebrow">Undangan Digital · Elegan · Cepat</span>
     <h1 class="hero-title hero-title-brand">
       <span class="word"><span>tiba-tiba</span></span>
       <span class="word"><span>sah<span class="dot">.</span></span></span>
     </h1>
-    <div class="ornament" aria-hidden="true"><span></span><svg viewBox="0 0 24 24"><path d="M12 2 L15 12 L12 22 L9 12 Z"/></svg><span></span></div>
     <p class="hero-desc">Dari lamaran hingga hari bahagia — bagikan kabar istimewamu lewat undangan yang <b>elegan, interaktif, dan hemat</b>. Rapi dikerjakan, jadi hanya dalam <b>1×24 jam</b>.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="https://wa.me/6285602316285?text=Halo%20Tiba-Tiba%20Sah%2C%20saya%20ingin%20memesan%20undangan%20digital." target="_blank" rel="noopener">Pesan Sekarang</a>
       <a class="btn btn-ghost" href="#tema">Lihat Tema</a>
     </div>
+    <p class="trust-badges">Pembayaran aman · Revisi sampai puas · Jadi dalam 1×24 jam</p>
     <div class="hero-stats reveal-stagger">
-      <div class="stat"><span class="stat-num" data-count="77" data-suffix="+">0</span><span class="stat-label">Pilihan Tema</span></div>
-      <div class="stat"><span class="stat-num" data-count="1" data-suffix="×24 Jam">0</span><span class="stat-label">Pengerjaan</span></div>
-      <div class="stat"><span class="stat-num" data-count="2" data-suffix=" Paket">0</span><span class="stat-label">Basic & Premium</span></div>
+      <div class="stat"><span class="stat-num" data-count="77" data-suffix="+">0</span><span class="stat-label">Tema Premium</span></div>
+      <div class="stat"><span class="stat-num" data-count="1" data-suffix="×24 Jam">0</span><span class="stat-label">Pengerjaan Cepat</span></div>
+      <div class="stat"><span class="stat-num" data-count="100" data-suffix="+">0</span><span class="stat-label">Pelanggan Puas</span></div>
       <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Jumlah Tamu</span></div>
     </div>
   </div>
   <a class="hero-scroll" href="#keunggulan" aria-label="Gulir ke bawah"><span></span></a>
 </section>
 
-<!-- SHOWCASE MARQUEE (cuplikan tema undangan asli) -->
 <section class="showcase" aria-label="Cuplikan tema undangan">
   <div class="showcase-track" id="showcaseTrack" aria-hidden="true"></div>
 </section>
 
-<!-- KEUNGGULAN -->
+<section class="marquee-ticker" aria-label="Announcement ticker">
+  <div class="marquee-track" aria-hidden="true">
+    <span>new</span><svg class="droplet-icon" viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+    <span>new</span><svg class="droplet-icon" viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+    <span>new</span><svg class="droplet-icon" viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+    <span>new</span><svg class="droplet-icon" viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+    <span>new</span><svg class="droplet-icon" viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+    <span>new</span><svg class="droplet-icon" viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+  </div>
+</section>
+
 <section id="keunggulan">
   <div class="section-wrap">
     <header class="section-head reveal">
@@ -102,28 +135,28 @@
     </header>
     <div class="keunggulan-grid reveal-stagger">
       <article class="glass tilt keung-card">
-        <div class="keung-media"><img src="assets/images/keunggulan-tepat-cepat.jpg" alt="Ilustrasi Tepat & Cepat — pesanan siap dalam 1×24 jam" loading="lazy" /></div>
+        <div class="keung-media"><img src="assets/images/keunggulan-tepat-cepat.jpg" alt="Ilustrasi Tepat & Cepat" loading="lazy" /></div>
         <div class="keung-body">
-          <h3 class="sr-only">Tepat &amp; Cepat</h3>
+          <h3 class="sr-only">Tepat & Cepat</h3>
           <p>Pesananmu siap dalam <b>1×24 jam</b> setelah order diterima.</p>
         </div>
       </article>
       <article class="glass tilt keung-card">
-        <div class="keung-media"><img src="assets/images/keunggulan-harga.jpg" alt="Ilustrasi Harga Terjangkau — undangan digital premium dengan harga ramah" loading="lazy" /></div>
+        <div class="keung-media"><img src="assets/images/keunggulan-harga.jpg" alt="Ilustrasi Harga Terjangkau" loading="lazy" /></div>
         <div class="keung-body">
           <h3 class="sr-only">Harga Terjangkau</h3>
           <p>Standar harga yang ramah di kantong, tanpa mengurangi kualitas.</p>
         </div>
       </article>
       <article class="glass tilt keung-card">
-        <div class="keung-media"><img src="assets/images/keunggulan-terima-beres.jpg" alt="Ilustrasi Terima Beres — proses desain, revisi, hingga hasil akhir selesai" loading="lazy" /></div>
+        <div class="keung-media"><img src="assets/images/keunggulan-terima-beres.jpg" alt="Ilustrasi Terima Beres" loading="lazy" /></div>
         <div class="keung-body">
           <h3 class="sr-only">Terima Beres</h3>
           <p>Belum puas? Kami berikan revisi untuk memaksimalkan hasilnya.</p>
         </div>
       </article>
       <article class="glass tilt keung-card">
-        <div class="keung-media"><img src="assets/images/keunggulan-premium.jpg" alt="Ilustrasi Tampil Premium — undangan elegan di HP, tablet, laptop, dan desktop" loading="lazy" /></div>
+        <div class="keung-media"><img src="assets/images/keunggulan-premium.jpg" alt="Ilustrasi Tampil Premium" loading="lazy" /></div>
         <div class="keung-body">
           <h3 class="sr-only">Tampil Premium di Semua Layar</h3>
           <p>Tampil elegan di HP, tablet, laptop, hingga desktop.</p>
@@ -133,7 +166,6 @@
   </div>
 </section>
 
-<!-- FITUR -->
 <section id="fitur">
   <div class="section-wrap">
     <header class="section-head reveal">
@@ -147,14 +179,13 @@
       <article class="glass tilt fitur-card"><span class="fitur-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg></span><h3>Google Apps Integrations</h3><p>Terintegrasi dengan Google Maps, Google Calendar, dan layanan Google lainnya.</p></article>
       <article class="glass tilt fitur-card"><span class="fitur-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.7-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.3-7 10-7 10Z"/></svg></span><h3>Story Love Timeline</h3><p>Ceritakan kisah cinta kalian dengan timeline interaktif yang menyentuh hati.</p></article>
       <article class="glass tilt fitur-card"><span class="fitur-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M5 17l4.5-4.5 3.5 3.5 2.5-2.5 3.5 3.5"/></svg></span><h3>Photo &amp; Video Gallery</h3><p>Tampilkan momen terbaik kalian dalam galeri foto dan video yang indah.</p></article>
-      <article class="glass tilt fitur-card"><span class="fitur-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8.5" width="17" height="11.5" rx="1.5"/><path d="M3.5 12.5h17M12 8.5v11.5"/><path d="M12 8.5S8.2 8.7 8.2 6.4 12 5.4 12 8.5Zm0 0s3.8.2 3.8-2.1S12 5.4 12 8.5Z"/></svg></span><h3>Sent Digital Gift</h3><p>Tamu dapat mengirim hadiah digital langsung melalui undangan kalian.</p></article>
+      <article class="glass tilt fitur-card"><span class="fitur-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8.5" width="17" height="11.5" rx="1.5"/><path d="M3.5 12.5h17M12 8.5v11.5"/><path d="M12 8.5S8.2 8.7 8.2 6.4 12 5.4 12 8.5Zm0 0s3.8 .2 3.8-2.1S12 5.4 12 8.5Z"/></svg></span><h3>Sent Digital Gift</h3><p>Tamu dapat mengirim hadiah digital langsung melalui undangan kalian.</p></article>
       <article class="glass tilt fitur-card"><span class="fitur-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h11a1.5 1.5 0 0 1 1.5 1.5V20H7.5A1.5 1.5 0 0 1 6 18.5Z"/><path d="M9.5 8.5h6M9.5 11.5h6"/></svg></span><h3>Guestbook &amp; Reservation</h3><p>Kelola konfirmasi kehadiran tamu dengan buku tamu digital yang praktis.</p></article>
       <article class="glass tilt fitur-card"><span class="fitur-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V6l10-2v12"/><circle cx="6.2" cy="18" r="2.8"/><circle cx="16.2" cy="16" r="2.8"/></svg></span><h3>Autoplay Backsound Audio</h3><p>Tambahkan lagu favorit kalian sebagai backsound otomatis di undangan.</p></article>
     </div>
   </div>
 </section>
 
-<!-- TEMA -->
 <section id="tema">
   <div class="section-wrap">
     <header class="section-head section-head-center reveal">
@@ -162,7 +193,7 @@
       <h2 class="section-title">Pilih <span class="grad-text">tema desain</span> sesuai undangan impianmu.</h2>
     </header>
     <div class="tema-tabs" id="temaTabs" role="tablist" aria-label="Kategori tema"></div>
-    <div class="tema-grid" id="temaGrid" aria-live="polite"></div>
+    <div class="tema-grid" id="temaGrid" role="tabpanel" aria-live="polite"></div>
     <noscript>
       <p class="noscript-note">Aktifkan JavaScript untuk melihat 77+ galeri tema, atau
         <a href="https://wa.me/6285602316285" target="_blank" rel="noopener">hubungi kami via WhatsApp</a>.</p>
@@ -170,7 +201,6 @@
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
 <section id="testimonial">
   <div class="section-wrap">
     <header class="section-head reveal">
@@ -179,7 +209,7 @@
     </header>
     <div class="testi-grid reveal-stagger">
       <article class="glass testi-card">
-        <p class="testi-quote">“Sudah langganan untuk klien-klien saya, hasilnya selalu memuaskan!”</p>
+        <p class="testi-quote">"Sudah langganan untuk klien-klien saya, hasilnya selalu memuaskan!"</p>
         <p class="testi-body">Sebagai WO, saya butuh partner yang cepat dan rapi. Tiba-Tiba Sah selalu mengerjakan undangan klien tepat waktu dengan desain yang elegan.</p>
         <div class="testi-person">
           <img class="testi-avatar" src="assets/images/testi-1.png" alt="Rani Wijaya" loading="lazy" />
@@ -187,7 +217,7 @@
         </div>
       </article>
       <article class="glass testi-card">
-        <p class="testi-quote">“Prosesnya cepat banget, undangan jadi cuma dalam sehari!”</p>
+        <p class="testi-quote">"Prosesnya cepat banget, undangan jadi cuma dalam sehari!"</p>
         <p class="testi-body">Awalnya ragu karena mepet sama hari-H, tapi timnya responsif dan undangan langsung jadi. Tinggal share link ke grup keluarga, praktis dan hemat.</p>
         <div class="testi-person">
           <img class="testi-avatar" src="assets/images/testi-2.png" alt="Dimas Pratama" loading="lazy" />
@@ -195,7 +225,7 @@
         </div>
       </article>
       <article class="glass testi-card">
-        <p class="testi-quote">“Desainnya cantik dan bisa request revisi sampai pas di hati.”</p>
+        <p class="testi-quote">"Desainnya cantik dan bisa request revisi sampai pas di hati."</p>
         <p class="testi-body">Saya minta beberapa kali penyesuaian warna dan foto, semua dilayani dengan sabar. Hasil akhirnya sesuai impian, banyak tamu yang memuji.</p>
         <div class="testi-person">
           <img class="testi-avatar" src="assets/images/testi-3.png" alt="Putri Maharani" loading="lazy" />
@@ -203,7 +233,7 @@
         </div>
       </article>
       <article class="glass testi-card">
-        <p class="testi-quote">“Harga terjangkau tapi hasilnya berasa premium. Worth it!”</p>
+        <p class="testi-quote">"Harga terjangkau tapi hasilnya berasa premium. Worth it!"</p>
         <p class="testi-body">Fitur RSVP dan galeri fotonya sangat membantu mengelola tamu acara. Dengan harga segini, fiturnya lengkap banget. Pasti rekomendasiin ke teman.</p>
         <div class="testi-person">
           <img class="testi-avatar" src="assets/images/testi-4.png" alt="Bayu Saputra" loading="lazy" />
@@ -214,7 +244,6 @@
   </div>
 </section>
 
-<!-- PRICING -->
 <section id="pricing">
   <div class="section-wrap">
     <header class="section-head section-head-center reveal">
@@ -226,7 +255,7 @@
         <div class="price-name">Paket Basic</div>
         <div class="price-from">Mulai dari</div>
         <div class="price-amount">Rp 80.000</div>
-        <p class="price-desc">Beberapa fitur khusus untuk undangan digital Anda.</p>
+        <p class="price-desc">Cocok untuk acara sederhana dengan fitur esensial.</p>
         <ul class="price-features">
           <li class="ok">Desain tema pilihan</li>
           <li class="ok">Mobile friendly</li>
@@ -237,11 +266,11 @@
         <a href="https://wa.me/6285602316285?text=Halo%20Tiba-Tiba%20Sah%2C%20saya%20tertarik%20dengan%20Paket%20Basic." target="_blank" rel="noopener" class="btn btn-ghost btn-block">Pesan Basic</a>
       </article>
       <article class="glass price-card price-card-premium">
-        <span class="price-badge">Paling Populer</span>
+        <span class="price-badge">Hemat 25%</span>
         <div class="price-name">Paket Premium</div>
         <div class="price-from">Mulai dari</div>
         <div class="price-amount grad-text">Rp 120.000</div>
-        <p class="price-desc">Paket rekomendasi dengan fitur paling lengkap untuk acara impianmu.</p>
+        <p class="price-desc">Paket rekomendasi — hemat Rp40.000 untuk fitur lengkap.</p>
         <ul class="price-features">
           <li class="ok">Desain tema pilihan</li>
           <li class="ok">Mobile friendly</li>
@@ -261,7 +290,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <section id="faq">
   <div class="section-wrap">
     <header class="section-head section-head-center reveal">
@@ -269,45 +297,20 @@
       <h2 class="section-title">Hal yang sering <span class="grad-text">ditanyakan</span>.</h2>
     </header>
     <div class="faq-grid reveal">
-      <div class="faq-item"><button class="faq-q">Berapa lama proses pengerjaan undangan?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Pengerjaan undangan digital selesai dalam 1×24 jam setelah semua data diterima dan order dikonfirmasi.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Apakah bisa request revisi?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Tentu! Kami menyediakan layanan revisi agar hasil undangan sesuai dengan keinginan Anda.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Apa saja metode pembayaran yang tersedia?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Kami menerima berbagai metode pembayaran termasuk transfer bank, e-wallet, dan QRIS.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Apakah undangan bisa dibuka di semua perangkat?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Ya! Semua undangan dioptimalkan untuk tampil sempurna di smartphone, tablet, maupun desktop.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Berapa lama link undangan aktif?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Link undangan aktif sesuai paket yang dipilih. Hubungi kami untuk informasi perpanjangan.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Bagaimana cara memesan undangan?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Pilih tema yang kamu suka, klik tombol pesan, lalu isi data pemesanan dan lakukan pembayaran. Mudah!</p></div></div>
-      <div class="faq-item"><button class="faq-q">Apakah bisa custom desain?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Untuk custom desain di luar template yang tersedia, silakan hubungi kami untuk diskusi lebih lanjut.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Data apa saja yang perlu disiapkan?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Nama mempelai, tanggal &amp; lokasi acara, foto, dan detail lainnya. Kami akan memandu setelah order.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Berapa lama proses pengerjaan undangan?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Pengerjaan undangan digital selesai dalam 1×24 jam setelah semua data diterima dan order dikonfirmasi.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Apakah bisa request revisi?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Tentu! Kami menyediakan layanan revisi agar hasil undangan sesuai dengan keinginan Anda.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Apa saja metode pembayaran yang tersedia?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Kami menerima berbagai metode pembayaran termasuk transfer bank, e-wallet, dan QRIS.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Apakah undangan bisa dibuka di semua perangkat?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Ya! Semua undangan dioptimalkan untuk tampil sempurna di smartphone, tablet, maupun desktop.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Berapa lama link undangan aktif?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Link undangan aktif sesuai paket yang dipilih. Hubungi kami untuk informasi perpanjangan.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Bagaimana cara memesan undangan?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Pilih tema yang kamu suka, klik tombol pesan, lalu isi data pemesanan dan lakukan pembayaran. Mudah!</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Apakah bisa custom desain?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Untuk custom desain di luar template yang tersedia, silakan hubungi kami untuk diskusi lebih lanjut.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Data apa saja yang perlu disiapkan?<span class="faq-toggle">+</span></button><div class="faq-a"><p>Nama mempelai, tanggal &amp; lokasi acara, foto, dan detail lainnya. Kami akan memandu setelah order.</p></div></div>
     </div>
-  </div>
-</section>
-
-<!-- BUILDER -->
-<section id="builder">
-  <div class="section-wrap builder-inner reveal">
-    <div class="builder-left">
-      <span class="section-eyebrow">Meet The Builder</span>
-      <h2 class="section-title">Orang di balik <span class="grad-text">Tiba-Tiba Sah</span>.</h2>
-      <p class="builder-desc">Koordinator yang memastikan setiap langkah berjalan sesuai rencana dan sesuai visi klien.</p>
-    </div>
-    <article class="glass builder-card tilt">
-      <div class="builder-person">
-        <img class="builder-avatar" src="assets/images/builder.png" alt="Muhamad Rahma Aditya" loading="lazy" />
-        <div>
-          <div class="builder-name">Muhamad Rahma Aditya</div>
-          <div class="builder-role">Chief Marketing Officer</div>
-        </div>
-      </div>
-      <div class="builder-actions">
-        <a href="https://instagram.com/tibatiba.sah" target="_blank" rel="noopener" class="btn btn-ghost">Know More</a>
-        <a href="https://wa.me/6285602316285?text=Halo%20Tiba-Tiba%20Sah%2C%20saya%20ingin%20berkenalan%20lebih%20lanjut." target="_blank" rel="noopener" class="btn btn-primary">Get In Touch</a>
-      </div>
-    </article>
   </div>
 </section>
 
 </main>
 
-<!-- FOOTER -->
 <footer id="footer">
   <div class="footer-inner reveal">
     <h2 class="footer-title">Tinggal satu langkah menuju <span class="grad-text">undangan impianmu</span>.</h2>
@@ -323,18 +326,36 @@
   </div>
 </footer>
 
-<!-- Floating -->
 <a class="wa-float" href="https://wa.me/6285602316285?text=Halo%20Tiba-Tiba%20Sah%2C%20saya%20ingin%20memesan%20undangan%20digital." target="_blank" rel="noopener" aria-label="Chat WhatsApp">
   <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.91-2.19-.24-.57-.48-.5-.66-.51l-.56-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.2 5.07 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.42 9.42 0 01-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 01-1.44-5.02c0-5.2 4.23-9.42 9.43-9.42 2.52 0 4.88.98 6.66 2.76a9.36 9.36 0 012.76 6.67c0 5.2-4.23 9.43-9.43 9.43zm8.02-17.45A11.32 11.32 0 0012.05.7C5.8.7.72 5.78.72 12.03c0 1.99.52 3.94 1.51 5.66L.6 23.3l5.74-1.51a11.3 11.3 0 005.7 1.45h.01c6.25 0 11.33-5.08 11.33-11.33 0-3.03-1.18-5.87-3.32-8.01z"/></svg>
 </a>
 <button class="to-top" id="toTop" aria-label="Kembali ke atas">↑</button>
 
-<!-- Libraries (CDN) — main.js bekerja walau ini gagal dimuat -->
+<div class="preview-modal" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="previewTitle" hidden>
+  <div class="preview-backdrop" data-close></div>
+  <div class="preview-dialog">
+    <header class="preview-head">
+      <div class="preview-head-text">
+        <span class="preview-eyebrow">Preview Tema</span>
+        <h3 class="preview-title" id="previewTitle">Preview</h3>
+      </div>
+      <button class="preview-close" type="button" data-close aria-label="Tutup preview">✕</button>
+    </header>
+    <div class="preview-frame-wrap">
+      <iframe class="preview-frame" id="previewFrame" title="Preview undangan digital" loading="lazy" src="about:blank"></iframe>
+      <div class="preview-loading" id="previewLoading"><span class="spinner" aria-hidden="true"></span><span>Memuat preview…</span></div>
+    </div>
+    <footer class="preview-foot">
+      <a class="btn btn-primary preview-order" id="previewOrder" href="#" target="_blank" rel="noopener">Pesan Tema Ini</a>
+      <a class="btn btn-ghost" id="previewOpen" href="#" target="_blank" rel="noopener">Buka di Tab Baru</a>
+    </footer>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 
-<!-- App -->
 <script src="js/themes-data.js"></script>
 <script src="js/main.js"></script>
 </body>

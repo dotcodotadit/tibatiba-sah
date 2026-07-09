@@ -1,48 +1,69 @@
-/* ============================================================
-   Tiba-Tiba Sah — Responsive
-   Desktop (default) · Tablet (≤1024) · Mobile (≤768) · HP kecil (≤480)
-   ============================================================ */
+/* ── DESKTOP LARGE (≥ 1440px) ──────────────────────── */
+@media (min-width: 1440px) {
+  .section-wrap, .hero-inner { max-width: 1360px; }
+}
 
-/* ── TABLET (≤ 1024px) ─────────────────────────────── */
+/* ── TABLET LANDSCAPE (≤ 1024px) ───────────────────── */
 @media (max-width: 1024px) {
   .section-wrap { padding: 0 32px; }
   section { padding: 88px 0; }
+
+  /* Hero centered mulai tablet */
+  .hero-inner { text-align: center; padding: 130px 32px 90px; }
+  .hero-title { margin-left: auto; margin-right: auto; }
+  .hero-desc { margin-left: auto; margin-right: auto; }
+  .hero-cta { justify-content: center; }
+  .hero-stats { margin-left: auto; margin-right: auto; }
+
+  .hero-title-brand { font-size: clamp(56px, 9vw, 104px); }
+  .section-title { font-size: clamp(34px, 4.6vw, 43px); }
+
   .keunggulan-grid { grid-template-columns: repeat(2, 1fr); }
   .fitur-grid { grid-template-columns: repeat(2, 1fr); }
   .tema-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ── MOBILE (≤ 768px) ──────────────────────────────── */
+/* ── PERANGKAT SENTUH (tablet & HP, tanpa hover) ──── */
+/* Live Preview hanya untuk desktop; di sentuh gunakan "Live Demo" */
+@media (hover: none) {
+  .tema-preview { display: none; }
+  .tema-card:hover .tema-card-media img { transform: none; }
+}
+
+/* ── TABLET PORTRAIT / MOBILE LARGE (≤ 768px) ──────── */
 @media (max-width: 768px) {
   .nav { padding: 13px 20px; }
   .nav.scrolled { padding: 10px 20px; }
   .nav-brand img { height: 32px; }
 
-  /* Mobile menu */
   .nav-toggle { display: block; }
   .nav-cta { display: none; }
   .nav-links {
     position: absolute; top: 100%; left: 0; right: 0; flex-direction: column;
     align-items: stretch; gap: 0; padding: 0 20px;
-    background: var(--nav-bg); backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border-soft);
-    max-height: 0; overflow: hidden; transition: max-height .4s var(--ease), padding .4s;
+    background: var(--color-soft-off-white);
+    border-bottom: 1px solid var(--color-zinc-200);
+    max-height: 0; overflow: hidden; transition: max-height .4s var(--ease-soft), padding .4s;
   }
   .nav.open .nav-links { max-height: 380px; padding: 8px 20px 20px; }
-  .nav-links > a { padding: 15px 0; border-bottom: 1px solid var(--border-soft); }
+  .nav-links > a { padding: 15px 0; border-bottom: 1px solid var(--color-zinc-200); }
   .nav-links > a:not(.nav-links-cta)::after { display: none; }
   .nav-links-cta {
     display: block; text-align: center; margin-top: 12px;
-    padding: 14px !important; border-radius: 100px; color: #1a140b !important;
-    background: var(--grad-gold); border-bottom: none !important; font-weight: 600;
+    padding: 14px !important; border-radius: var(--radius-buttons);
+    color: var(--color-soft-off-white) !important;
+    background: var(--color-electric-blue); border-bottom: none !important;
+    font-weight: var(--font-weight-semibold);
   }
 
-  #hero { padding: 120px 22px 80px; }
-  .hero-title-brand { font-size: clamp(44px, 12.5vw, 92px); letter-spacing: -1.5px; }
-  .hero-cta { margin-bottom: 48px; }
-  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  #hero { padding: 0; }
+  .hero-inner { padding: 120px var(--spacing-24) 80px; }
+  .hero-title-brand { font-size: clamp(44px, 12.5vw, 82px); }
+  .hero-desc { font-size: var(--text-body-sm); }
+  .hero-cta { margin-bottom: var(--spacing-16); }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); max-width: 460px; gap: var(--spacing-12); }
   .hero-scroll { display: none; }
-  .showcase-item { width: 96px; }
+  .showcase-item { width: 120px; }
 
   .section-wrap { padding: 0 22px; }
   section { padding: 72px 0; }
@@ -54,9 +75,24 @@
   .fitur-card h3 { font-size: 16px; }
   .fitur-icon { width: 46px; height: 46px; font-size: 20px; margin-bottom: 14px; }
 
+  .tema-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-electric-blue) transparent;
+    position: relative;
+  }
+  .tema-tabs::-webkit-scrollbar { height: 3px; }
+  .tema-tabs::-webkit-scrollbar-thumb { background: var(--color-electric-blue); border-radius: 3px; }
+  .tab-btn { flex-shrink: 0; padding: 12px 20px; min-height: 44px; }
   .tema-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
   .tema-name { font-size: 15px; }
   .tema-actions { flex-direction: column; }
+  .tema-actions a { padding: 12px 16px; min-height: 44px; }
+  .footer-social a { width: 50px; height: 50px; }
 
   .testi-grid { grid-template-columns: 1fr; }
   .testi-card { padding: 28px; }
@@ -64,21 +100,23 @@
 
   .pricing-grid { grid-template-columns: 1fr; gap: 28px; }
   .faq-grid { grid-template-columns: 1fr; }
-  .builder-inner { grid-template-columns: 1fr; gap: 28px; }
-  .builder-actions { flex-direction: column; }
 }
 
 /* ── HP KECIL (≤ 480px) ────────────────────────────── */
 @media (max-width: 480px) {
   .section-wrap { padding: 0 16px; }
-  #hero { padding: 110px 16px 70px; }
+  .preview-modal { padding: 0; }
+  .preview-dialog { max-width: 100%; max-height: 100vh; height: 100vh; border-radius: 0; }
+  .preview-frame-wrap { flex: 1; aspect-ratio: auto; }
+  .hero-inner { padding: 110px var(--spacing-16) 70px; }
   .hero-cta { flex-direction: column; }
   .hero-cta .btn { width: 100%; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); max-width: 340px; }
   .keunggulan-grid { grid-template-columns: 1fr; }
   .fitur-grid { grid-template-columns: 1fr; }
   .tema-grid { grid-template-columns: 1fr; }
   .tema-actions { flex-direction: row; }
-  .wa-float { width: 50px; height: 50px; right: 16px; bottom: 16px; }
+  .wa-float { width: 50px; height: 50px; right: 12px; bottom: 12px; }
   .wa-float svg { width: 26px; height: 26px; }
-  .to-top { right: 18px; bottom: 76px; width: 40px; height: 40px; }
+  .to-top { right: 18px; bottom: 76px; width: 48px; height: 48px; font-size: 20px; }
 }
