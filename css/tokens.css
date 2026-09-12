@@ -1,38 +1,64 @@
 :root {
   /* ── Colors ──────────────────────────────────────── */
-  --color-midnight-navy: #000f2e;
-  --color-warm-cream: #f6ecc8;
-  --color-soft-off-white: #fcfaf2;
-  --color-electric-blue: #0067e5;
-  --color-heather-violet: #515a8a;
+  --color-primary: #0066cc;
+  --color-primary-focus: #0071e3;
+  --color-primary-on-dark: #2997ff;
+  --color-ink: #1d1d1f;
+  --color-body: #1d1d1f;
+  --color-body-on-dark: #ffffff;
+  --color-body-muted: #cccccc;
+  --color-ink-muted-80: #333333;
+  --color-ink-muted-48: #7a7a7a;
+  --color-divider-soft: #f0f0f0;
+  --color-hairline: #e0e0e0;
+  --color-canvas: #ffffff;
+  --color-canvas-parchment: #f5f5f7;
+  --color-surface-pearl: #fafafc;
+  --color-surface-tile-1: #272729;
+  --color-surface-tile-2: #2a2a2c;
+  --color-surface-tile-3: #252527;
+  --color-surface-black: #000000;
+  --color-surface-chip-translucent: #d2d2d7;
+  --color-on-primary: #ffffff;
+  --color-on-dark: #ffffff;
+
+  /* ── Aliases for existing usage ──────────────────── */
+  --color-electric-blue: var(--color-primary);
+  --color-midnight-navy: var(--color-ink);
+  --color-warm-cream: var(--color-canvas-parchment);
+  --color-soft-off-white: var(--color-canvas);
+  --color-heather-violet: var(--color-ink-muted-80);
   --color-signal-yellow: #fed200;
   --color-deep-teal: #116973;
   --color-sky-wash: #8ab1e6;
-  --color-black-ink: #000000;
-  --color-brand-blue-drift: #4183d9;
-
+  --color-black-ink: var(--color-ink);
+  --color-brand-blue-drift: var(--color-primary-focus);
+  --color-zinc-100: var(--color-divider-soft);
+  --color-zinc-200: var(--color-hairline);
+  --color-zinc-500: var(--color-ink-muted-48);
+  --nav-bg: rgba(252, 250, 242, 0.85);
 
   /* ── Typography — Font Families ──────────────────── */
-  --font-display: 'League Spartan', 'Manrope', system-ui, -apple-system, sans-serif;
-  --font-body: 'Manrope', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'SF Pro Display', 'League Spartan', 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-body: 'SF Pro Text', 'Manrope', 'Inter', system-ui, -apple-system, sans-serif;
 
   /* ── Typography — Scale ──────────────────────────── */
   --text-caption: 14px;
-  --leading-caption: 1.3;
+  --leading-caption: 1.43;
   --text-body-sm: 16px;
   --leading-body-sm: 1.5;
-  --text-body: 18px;
-  --leading-body: 1.5;
-  --text-subheading: 24px;
-  --leading-subheading: 1.3;
+  --text-body: 17px;
+  --leading-body: 1.47;
+  --text-subheading: 21px;
+  --leading-subheading: 1.19;
   --text-heading-sm: 27px;
   --leading-heading-sm: 1.2;
-  --text-heading: 43px;
-  --leading-heading: 1.2;
-  --text-heading-lg: 48px;
+  --text-heading: 34px;
+  --leading-heading: 1.47;
+  --text-heading-lg: 40px;
   --leading-heading-lg: 1.1;
-  --text-display: 72px;
-  --leading-display: 1;
+  --text-display: 56px;
+  --leading-display: 1.07;
 
   /* ── Typography — Weights ────────────────────────── */
   --font-weight-regular: 400;
@@ -45,41 +71,45 @@
   --spacing-8: 8px;
   --spacing-12: 12px;
   --spacing-16: 16px;
+  --spacing-17: 17px;
   --spacing-20: 20px;
   --spacing-24: 24px;
   --spacing-32: 32px;
   --spacing-40: 40px;
-  --spacing-64: 64px;
   --spacing-48: 48px;
   --spacing-60: 60px;
+  --spacing-64: 64px;
   --spacing-80: 80px;
   --spacing-96: 96px;
   --spacing-100: 100px;
   --spacing-128: 128px;
 
   /* ── Layout ──────────────────────────────────────── */
-  --page-max-width: 1280px;
+  --page-max-width: 1440px;
   --section-gap: 80px;
-  --card-padding: 20px;
+  --card-padding: 24px;
   --element-gap: 20px;
 
   /* ── Border Radius ───────────────────────────────── */
-  --radius-cards: 20px;
-  --radius-images: 20px;
-  --radius-buttons: 20px;
-  --radius-tags: 9999px;
-  --radius-xl: 20px;
+  --radius-none: 0px;
+  --radius-xs: 5px;
+  --radius-sm: 8px;
+  --radius-md: 11px;
+  --radius-lg: 18px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+  --radius-cards: var(--radius-lg);
+  --radius-images: var(--radius-lg);
+  --radius-buttons: var(--radius-pill);
+  --radius-tags: var(--radius-pill);
+  --radius-xl: var(--radius-lg);
 
   /* ── Shadows ─────────────────────────────────────── */
   --shadow-none: none;
+  --shadow-hairline: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  --shadow-product: 0 3px 5px 0 rgba(0, 0, 0, 0.22), 0 5px 30px 0 rgba(0, 0, 0, 0.22);
 
   /* ── Motion ──────────────────────────────────────── */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* ── Zinc Neutrals (used in style.css) ───────────── */
-  --color-zinc-100: #f4f4f5;
-  --color-zinc-200: #e4e4e7;
-  --color-zinc-500: #71717a;
-  --nav-bg: rgba(252, 250, 242, 0.85);
 }
